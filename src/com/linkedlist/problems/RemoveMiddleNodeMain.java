@@ -6,7 +6,8 @@ import com.linkedlist.datastructures.SingleNode;
 public class RemoveMiddleNodeMain {
 
 	/**
-	 * Removes the middle node from an unsorted linked list
+	 * Problem statement:
+	 * - Remove the middle node from an unsorted linked list
 	 * 
 	 * @param args
 	 */
