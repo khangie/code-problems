@@ -8,7 +8,7 @@ import com.linkedlist.datastructures.SingleNode;
 public class RemoveDuplicatesMain {
 
 	/**
-	 * Problem statement
+	 * Problem:
 	 * - Remove duplicate nodes in the linked list
 	 * 
 	 * @param args
