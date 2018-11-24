@@ -141,13 +141,12 @@ public class SingleLinkedList {
 	}
 	
 	/**
-	 * Reverses the linked list
+	 * Reverses the linked list using an iterative implementation
 	 * 
 	 * Time Complexity O(n)
-	 * 
 	 */
 	
-	public void reverseList() {
+	public void reverseListIterative() {
 		
 		// Return if the list is empty or only has one item
 		if ((head == null) || (head.getNext() == null)) {
@@ -178,6 +177,38 @@ public class SingleLinkedList {
 		
 		// Assign a new value to head
 		head = currNode;
+		
+	}
+	
+	/**
+	 * Reverses the linked list using a recursive implementation
+	 * 
+	 * Time Complexity O(n)
+	 */
+	
+	public void reverseListRecursive() {
+		
+		// Return if the list is empty or only has one item
+		if ((head == null) || (head.getNext() == null)) {
+			return;
+		}
+		
+		SingleNode firstNode = head;
+		reverseNode(firstNode);
+		firstNode.setNext(null);
+		
+	}
+	
+	private void reverseNode(SingleNode currNode) {
+		
+		if (currNode.getNext() == null) {
+			head = currNode;
+			return;
+		}
+		
+		SingleNode nextNode = currNode.getNext();
+		reverseNode(nextNode);
+		nextNode.setNext(currNode);
 		
 	}
 	

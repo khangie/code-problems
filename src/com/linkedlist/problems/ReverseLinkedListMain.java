@@ -25,7 +25,10 @@ public class ReverseLinkedListMain {
 		list.addToFront(5);
 		list.printList();
 		
-		list.reverseList();
+		list.reverseListIterative();
+		list.printList();
+		
+		list.reverseListRecursive();
 		list.printList();
 		
 	}
