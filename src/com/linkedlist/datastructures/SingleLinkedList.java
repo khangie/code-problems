@@ -81,15 +81,11 @@ public class SingleLinkedList {
 		SingleNode fast = head;
 		SingleNode prev = null;
 		
-		while (fast != null) {
+		while ((fast != null) && (fast.getNext() != null)) {
 			prev = slow;
 			slow = slow.getNext();
 			fast = fast.getNext();
-			
-			// Account for case when the fast pointer has reached the end
-			if (fast != null) {
-				fast = fast.getNext();
-			}
+			fast = fast.getNext();
 		}
 		
 		// Delete the node at the slow pointer
