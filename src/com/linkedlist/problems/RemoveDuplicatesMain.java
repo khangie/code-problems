@@ -16,11 +16,14 @@ public class RemoveDuplicatesMain {
 	
 	public static void main(String[] args) {
 		
+		SingleLinkedList linkedList;
+		ArrayList<SingleNode> removedNodes;
+		
 		/*
-		 * Remove duplicate nodes from an unsorted linked list
+		 * With buffer
 		 */
 		
-		SingleLinkedList linkedList = new SingleLinkedList();
+		linkedList = new SingleLinkedList();
 		linkedList.addToFront(3);
 		linkedList.addToFront(1);
 		linkedList.addToFront(4);
@@ -29,7 +32,7 @@ public class RemoveDuplicatesMain {
 		linkedList.addToFront(4);
 		linkedList.printList();
 		
-		ArrayList<SingleNode> removedNodes = linkedList.removeDuplicates();
+		removedNodes = linkedList.removeDuplicates();
 		System.out.print("Removed nodes - ");
 		for (SingleNode node : removedNodes) {
 			System.out.print(node.getValue() + ", ");
@@ -37,6 +40,26 @@ public class RemoveDuplicatesMain {
 		System.out.print("\n");
 		linkedList.printList();
 		
+		/*
+		 * Without buffer
+		 */
+		
+		linkedList = new SingleLinkedList();
+		linkedList.addToFront(3);
+		linkedList.addToFront(1);
+		linkedList.addToFront(4);
+		linkedList.addToFront(2);
+		linkedList.addToFront(3);
+		linkedList.addToFront(4);
+		linkedList.printList();
+		
+		removedNodes = linkedList.removeDuplicatesWithoutBuffer();
+		System.out.print("Removed nodes - ");
+		for (SingleNode node : removedNodes) {
+			System.out.print(node.getValue() + ", ");
+		}
+		System.out.print("\n");
+		linkedList.printList();
 		
 	}
 	

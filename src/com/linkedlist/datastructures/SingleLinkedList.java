@@ -100,6 +100,7 @@ public class SingleLinkedList {
 	 * Removes duplicate nodes from an unsorted linked list
 	 * 
 	 * Time complexity O(n)
+	 * Space complexity O(n)
 	 * 
 	 * Implementation
 	 * 1) Define a HashSet containing the record of values that were found
@@ -135,6 +136,61 @@ public class SingleLinkedList {
 		return removedNodes;
 		
 	}
+	
+	/**
+	 * Removes duplicate nodes from an unsorted list without using a buffer
+	 * 
+	 * Time complexity O(n)
+	 * Space complexity O(1)
+	 * 
+	 * @return
+	 */
+	
+	public ArrayList<SingleNode> removeDuplicatesWithoutBuffer() {
+		
+		ArrayList<SingleNode> removedList = new ArrayList<SingleNode>();
+		
+		if ((head == null) || (head.getNext() == null)) {
+			return removedList;
+		}
+		
+		// Set initial pointers
+		SingleNode currNode 	= head;
+		SingleNode runnerNode	= currNode.getNext();
+		SingleNode prevNode		= currNode;
+		
+		while ((currNode != null) && (currNode.getNext() != null)) {
+			
+			while (runnerNode != null) {
+				
+				// Remove node if duplicate found
+				if (runnerNode.getValue() == currNode.getValue()) {
+					prevNode.setNext(runnerNode.getNext());
+					removedList.add(runnerNode);
+					runnerNode = runnerNode.getNext();
+				}
+				
+				// Move runner one step forward
+				if (runnerNode != null) {
+					prevNode = runnerNode;
+					runnerNode = runnerNode.getNext();
+				}
+				
+			}
+			
+			// Move current one step forward and reset runner
+			currNode = currNode.getNext();
+			if (currNode.getNext() != null) {
+				runnerNode = currNode.getNext();
+				prevNode = currNode;
+			}
+			
+		}
+		
+		return removedList;
+		
+	}
+	
 	
 	/**
 	 * Reverses the linked list using an iterative implementation
