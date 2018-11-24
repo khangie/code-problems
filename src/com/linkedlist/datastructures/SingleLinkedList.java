@@ -140,6 +140,48 @@ public class SingleLinkedList {
 		
 	}
 	
+	/**
+	 * Reverses the linked list
+	 * 
+	 * Time Complexity O(n)
+	 * 
+	 */
+	
+	public void reverseList() {
+		
+		// Return if the list is empty or only has one item
+		if ((head == null) || (head.getNext() == null)) {
+			return;
+		}
+		
+		// Set the initial state of the prevNode, currNode, and nextNode
+		SingleNode prevNode = null;
+		SingleNode currNode = head;
+		SingleNode nextNode = currNode.getNext();
+
+		while (nextNode != null) {
+			
+			// Move prevNode, currNode, and nextNode forward
+			prevNode = currNode;
+			currNode = nextNode;
+			nextNode = currNode.getNext();
+			
+			// Assign currNode to point backwards to prevNode which detaches currNode from nextNode
+			currNode.setNext(prevNode);
+			
+			// Set next to null for the first node in the list
+			if (prevNode == head) {
+				prevNode.setNext(null);
+			}
+			
+		}
+		
+		// Assign a new value to head
+		head = currNode;
+		
+	}
+	
+	
 	public void printList() {
 		SingleNode node = head;
 		while (node != null) {
