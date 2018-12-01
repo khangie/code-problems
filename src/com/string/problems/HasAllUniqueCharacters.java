@@ -32,6 +32,19 @@ public class HasAllUniqueCharacters {
 		
 	}
 	
+	/**
+	 * Determines whether a string has all unique characters
+	 * 
+	 * Time complexity
+	 * - O(n)
+	 * 
+	 * Space complexity
+	 * - O(1)
+	 * 
+	 * @param input input string
+	 * @return true or false
+	 */
+	
 	public static boolean isUniqueCharacters(String input) {
 		
 		// If length is greater than 128, then it is impossible to have all unique characters
@@ -39,7 +52,7 @@ public class HasAllUniqueCharacters {
 			return false;
 		}
 		
-		// Maps each numeric representation of an ASCII value that was used 
+		// Maps each numeric representation of an ASCII value that was found
 		boolean[] charSet = new boolean[128];
 		
 		for (int i = 0; i < input.length(); i++) {
