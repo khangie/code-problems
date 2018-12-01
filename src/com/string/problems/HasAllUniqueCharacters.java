@@ -21,6 +21,10 @@ public class HasAllUniqueCharacters {
 	 * - String is at least two characters in size
 	 * - If length > 128, then it is impossible to have all unique characters
 	 * 
+	 * If no additional data structures are allowed
+	 * - Use a runner but the time complexity will be O(n2)
+	 * - Sort the string and linearly traverse it but sorting will take time and space
+	 * 
 	 * @param args
 	 */
 	
