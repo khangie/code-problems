@@ -228,16 +228,18 @@ public class SingleLinkedList {
 	
 	public void reverseLinkedListRecursive(SingleNode curr) {
 		
+		// Empty list
 		if (curr == null) {
 			return;
 		}
 		
-		if (curr.getNext() == null) {
+		SingleNode next = curr.getNext();
+		
+		if (next == null) {
 			head = curr;
 			return;
 		}
 		
-		SingleNode next = curr.getNext();
 		reverseLinkedListRecursive(next);
 		next.setNext(curr);
 		curr.setNext(null);
