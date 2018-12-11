@@ -20,7 +20,7 @@ public class FibonacciMain {
 	}
 
 	/**
-	 * Non-dynamic implementation
+	 * Non-dynamic recursive implementation
 	 * 
 	 * Time complexity
 	 * O(n2)
@@ -43,6 +43,19 @@ public class FibonacciMain {
 		}
 		
 	}
+	
+	/**
+	 * Dynamic iterative implementation
+	 * 
+	 * Time complexity
+	 * O(n)
+	 * 
+	 * Space complexity
+	 * O(n)
+	 * 
+	 * @param n
+	 * @return
+	 */
 	
 	public static int fibDynamic(int n) {
 		
