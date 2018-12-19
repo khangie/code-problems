@@ -25,6 +25,11 @@ public class FibonacciMain {
 		}
 		System.out.println(fibDynamicRecursive(n, f));
 		
+		System.out.print("\n");
+		
+		FibonacciDynamic fibonacciDynamic = new FibonacciDynamic();
+		System.out.println(fibonacciDynamic.fibonacci(6));
+		
 	}
 
 	/**
