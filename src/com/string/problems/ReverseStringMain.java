@@ -8,6 +8,7 @@ public class ReverseStringMain {
 		
 		System.out.println(input);
 		System.out.println(reverseString(input));
+		System.out.println(reverseString2(input));
 
 	}
 
@@ -28,6 +29,17 @@ public class ReverseStringMain {
 		
 		return stringBuilder.toString();
 		
+	}
+	
+	public static String reverseString2(String input) {
+		
+		String reversed = "";
+		
+		for (int i = 0; i < input.length(); i++) {
+			reversed = input.charAt(i) + reversed;
+		}
+		
+		return reversed;
 	}
 	
 }
