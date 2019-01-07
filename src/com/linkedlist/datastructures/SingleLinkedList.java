@@ -2,6 +2,7 @@ package com.linkedlist.datastructures;
 
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.Set;
 
 public class SingleLinkedList {
 
@@ -116,7 +117,7 @@ public class SingleLinkedList {
 		
 		ArrayList<SingleNode> removedNodes = new ArrayList<SingleNode>();
 		
-		HashSet<Integer> set = new HashSet<Integer>();
+		Set<Integer> set = new HashSet<Integer>();
 		
 		SingleNode prev = null;
 		SingleNode curr = head;
@@ -246,6 +247,16 @@ public class SingleLinkedList {
 		
 	}
 	
+	public void printList (SingleNode node) {
+		
+		while (node != null) {
+			System.out.print(node.getValue() + " -> ");
+			node = node.getNext();
+		}
+		
+		System.out.println("\n");
+		
+	}
 	
 	public void printList() {
 		SingleNode node = head;
