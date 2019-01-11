@@ -1,7 +1,7 @@
 package com.string.problems;
 
 /**
- * Given a string, return the character that is most used
+ * Given a string, return the character that is most used.
  * @author knguyen
  *
  */
