@@ -45,6 +45,7 @@ public class Pyramid {
 			}
 
 			returnValue += new String(charArray) + "\n";
+			System.out.print("\n");
 			
 		}
 		
