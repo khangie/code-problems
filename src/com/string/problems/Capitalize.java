@@ -1,5 +1,11 @@
 package com.string.problems;
 
+/**
+ * Capitalize all the words in a sentence
+ * @author knguyen
+ *
+ */
+
 public class Capitalize {
 
 	public static void main(String[] args) {
