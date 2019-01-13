@@ -1,5 +1,7 @@
 package com.string.problems;
 
+import java.util.Stack;
+
 public class ReverseStringMain {
 
 	public static void main(String[] args) {
@@ -9,6 +11,7 @@ public class ReverseStringMain {
 		System.out.println(input);
 		System.out.println(reverseString(input));
 		System.out.println(reverseString2(input));
+		System.out.println(reverseString3(input));
 
 	}
 
@@ -40,6 +43,23 @@ public class ReverseStringMain {
 		}
 		
 		return reversed;
+	}
+	
+	public static String reverseString3(String input) {
+		
+		String reversed = "";
+		Stack<Character> stack = new Stack<>();
+		
+		for (int i = 0; i < input.length(); i++) {
+			stack.push(input.charAt(i));
+		}
+		
+		while (!stack.isEmpty()) {
+			reversed += stack.pop();
+		}
+		
+		return reversed;
+		
 	}
 	
 }
