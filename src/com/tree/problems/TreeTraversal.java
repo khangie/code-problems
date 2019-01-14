@@ -39,6 +39,10 @@ public class TreeTraversal {
 		bfs(root);
 		System.out.println("\n");
 		
+		System.out.println("Breadth First Search - Line by Line");
+		bfsLineByLine(root);
+		System.out.println("\n");
+		
 		System.out.println("Depth First Search - Iterative");
 		dfsIterative(root);
 		System.out.println("\n");
@@ -175,6 +179,51 @@ public class TreeTraversal {
 		int rightHeight = maxHeight(root.getRightChild());
 		
 		return Math.max(leftHeight, rightHeight) + 1;
+		
+	}
+
+	public static void bfsLineByLine(Node root) {
+		
+		if (root == null) {
+			return;
+		}
+		
+		int count = 0;
+		
+		Queue<Node> queue = new LinkedList<>();
+		
+		queue.add(root);
+		queue.add(null);
+		
+		while (!queue.isEmpty()) {
+			
+			Node node = queue.remove();
+			
+			if (node != null) {
+			
+				count++;
+				
+				System.out.print(node.getValue() + " -> ");
+				
+				if (node.getLeftChild() != null) {
+					queue.add(node.getLeftChild());
+				}
+				
+				if (node.getRightChild() != null) {
+					queue.add(node.getRightChild());
+				}
+				
+			} else {
+				
+				System.out.print("(" + count + ")" + "\n");
+				count = 0;
+				if (!queue.isEmpty()) {
+					queue.add(null);
+				}
+				
+			}
+			
+		}
 		
 	}
 	
