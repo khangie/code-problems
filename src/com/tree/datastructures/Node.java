@@ -52,20 +52,6 @@ public class Node {
 		
 	}
 	
-	public void traverseInOrder() {
-		
-		if (leftChild != null) {
-			leftChild.traverseInOrder();
-		}
-		
-		System.out.print(value + " -> ");
-		
-		if (rightChild != null) {
-			rightChild.traverseInOrder();
-		}
-	
-	}
-	
 	public Node contains(int data) {
 		
 		if (data == value) {

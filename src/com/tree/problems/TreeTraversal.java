@@ -32,7 +32,7 @@ public class TreeTraversal {
 		root.insert(17);
 
 		System.out.println("In Order Traversal");
-		root.traverseInOrder();
+		traverseInOrder(root);
 		System.out.println("\n");
 		
 		System.out.println("Breadth First Search");
@@ -53,12 +53,19 @@ public class TreeTraversal {
 		
 		System.out.println("Max Width");
 		System.out.println(maxWidth(root));
+		System.out.println("\n");
 		
 		System.out.println("Max Height");
 		System.out.println(maxHeight(root));
+		System.out.println("\n");
 		
 		System.out.println("Contains the value 20");
-		System.out.println(root.contains(20).getValue());
+		System.out.println(contains(root, 20).getValue());
+		System.out.println("\n");
+		
+		System.out.println("Is Valid");
+		System.out.println(isValid(root, null, null));
+		System.out.println("\n");
 		
 	}
 
@@ -227,6 +234,71 @@ public class TreeTraversal {
 			}
 			
 		}
+		
+	}
+	
+	public static void traverseInOrder(Node root) {
+		
+		if (root.getLeftChild() != null) {
+			traverseInOrder(root.getLeftChild());
+		}
+		
+		System.out.print(root.getValue() + " -> ");
+		
+		if (root.getRightChild() != null) {
+			traverseInOrder(root.getRightChild());
+		}
+	
+	}
+	
+	public static Node contains(Node root, int data) {
+		
+		if (data == root.getValue()) {
+			return root;
+		}
+		
+		if (root.getLeftChild() != null) {
+			return contains(root.getLeftChild(), data);
+		}
+		
+		if (root.getRightChild() != null) {
+			return contains(root.getRightChild(), data);
+		}
+		
+		return null;
+		
+	}
+	
+	public static boolean isValid(Node root, Integer minValue, Integer maxValue) {
+			
+		// Compare maxValue with current node
+		if ((maxValue != null) && (root.getValue() > maxValue)) {
+			return false;
+		}
+		
+		// Compare minValue with current node
+		if ((minValue != null) && (root.getValue() < minValue)) {
+			return false;
+		}
+		
+		// Check all the left children
+		if (root.getLeftChild() != null) {
+			boolean leftChildValid = isValid(root.getLeftChild(), minValue, root.getValue());
+			if (!leftChildValid) {
+				return false;
+			}
+		}
+		
+		// Check all the right children
+		if (root.getRightChild() != null) {
+			boolean rightChildValid = isValid(root.getRightChild(), root.getValue(), maxValue);
+			if (!rightChildValid) {
+				return false;
+			}
+		}
+		
+		// Return true if all the checks pass
+		return true;
 		
 	}
 	
