@@ -47,6 +47,14 @@ public class TreeTraversal {
 		dfsRecursive(root);
 		System.out.println("\n");
 		
+		System.out.println("Max Width");
+		System.out.println(maxWidth(root));
+		System.out.println("\n");
+		
+		System.out.println("Max Height");
+		System.out.println(maxHeight(root));
+		System.out.println("\n");
+		
 	}
 
 	public static void bfs(Node root) {
@@ -116,6 +124,59 @@ public class TreeTraversal {
 		if (root.getRightChild() != null) {
 			dfsRecursive(root.getRightChild());
 		}
+		
+	}
+	
+	public static int maxWidth(Node root) {
+		
+		if (root == null) {
+			return 0;
+		}
+		
+		int maxWidth = 0;
+		
+		Queue<Node> queue = new LinkedList<>();
+		queue.add(root);
+		
+		while (!queue.isEmpty()) {
+		
+//			System.out.println("NODE: " + queue.peek().getValue() + " SIZE: " + queue.size());
+			
+			if (queue.size() > maxWidth) {
+				maxWidth = queue.size();
+			}
+			
+			Node node = queue.remove();
+			
+			if (node.getLeftChild() != null) {
+				queue.add(node.getLeftChild());
+			}
+			
+			if (node.getRightChild() != null) {
+				queue.add(node.getRightChild());
+			}
+			
+		}
+		
+		return maxWidth;
+		
+	}
+	
+	/*
+	 *  HEIGHT is the number of edges in longest path from node to leaf node.
+	 *  DEPTH is the number of edges from node to root node.
+	 */
+	
+	public static int maxHeight(Node root) {
+		
+		if (root == null) {
+			return -1;
+		}
+		
+		int leftHeight = maxHeight(root.getLeftChild());
+		int rightHeight = maxHeight(root.getRightChild());
+		
+		return Math.max(leftHeight, rightHeight) + 1;
 		
 	}
 	
