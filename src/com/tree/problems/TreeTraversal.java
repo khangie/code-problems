@@ -57,6 +57,9 @@ public class TreeTraversal {
 		System.out.println("Max Height");
 		System.out.println(maxHeight(root));
 		
+		System.out.println("Contains the value 20");
+		System.out.println(root.contains(20).getValue());
+		
 	}
 
 	public static void bfs(Node root) {

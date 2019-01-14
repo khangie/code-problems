@@ -66,6 +66,24 @@ public class Node {
 	
 	}
 	
+	public Node contains(int data) {
+		
+		if (data == value) {
+			return this;
+		}
+		
+		if (leftChild != null) {
+			return leftChild.contains(data);
+		}
+		
+		if (rightChild != null) {
+			return rightChild.contains(data);
+		}
+		
+		return null;
+		
+	}
+	
 	public int getValue() {
 		return value;
 	}
