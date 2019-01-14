@@ -49,11 +49,9 @@ public class TreeTraversal {
 		
 		System.out.println("Max Width");
 		System.out.println(maxWidth(root));
-		System.out.println("\n");
 		
 		System.out.println("Max Height");
 		System.out.println(maxHeight(root));
-		System.out.println("\n");
 		
 	}
 
