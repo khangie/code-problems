@@ -28,7 +28,17 @@ public class FibonacciMain {
 		System.out.print("\n");
 		
 		FibonacciDynamic fibonacciDynamic = new FibonacciDynamic();
-		System.out.println(fibonacciDynamic.fibonacci(6));
+		System.out.println(fibonacciDynamic.fibonacci(n));
+
+		System.out.println("fibInterativeNew");
+		System.out.println(fibInterativeNew(n));
+		
+		System.out.println("fibIterativeNewOptimized");
+		System.out.println(fibIterativeNewOptimized(n));
+		
+		System.out.println("fibDynamicNew");
+		System.out.println(fibDynamicNew(n,f));
+		
 		
 	}
 
@@ -125,6 +135,10 @@ public class FibonacciMain {
 		
 	}
 	
+	/*
+	 * Bottom up approach (iterative)
+	 */
+	
 	public static int fibInterativeNew(int n) {
 		
 		int[] memo = new int[n+1];
@@ -132,10 +146,54 @@ public class FibonacciMain {
 		memo[1] = 1;
 		
 		for (int i = 2; i <= n; i++) {
-			memo[n] = memo[n-1] + memo[n-2];
+			memo[i] = memo[i-1] + memo[i-2];
 		}
 		
 		return memo[n];
+		
+	}
+	
+	public static int fibIterativeNewOptimized(int n) {
+		
+		int n0 = 0;
+		int n1 = 1;
+		
+		if (n == 0) {
+			return n0;
+		}
+		
+		if (n == 1) {
+			return n1;
+		}
+		
+		int fib = 0;;
+		
+		for (int i = 2; i <= n; i++) {
+			fib = n1 + n0;
+			n0 = n1;
+			n1 = fib;
+		}
+		
+		return fib;
+		
+	}
+	
+	
+	/*
+	 * Top-down approach (recursive)
+	 */
+	
+	public static int fibDynamicNew(int n, int memo[]) {
+		
+		if (memo[n] >= 0) {
+			return memo[n];
+		}
+		
+		int val = fibDynamicNew(n - 1 , memo) + fibDynamicNew(n - 2, memo);
+		memo[n] = val;
+		
+		return memo[n];
+		
 		
 	}
 	
