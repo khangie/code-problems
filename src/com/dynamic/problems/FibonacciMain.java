@@ -125,4 +125,18 @@ public class FibonacciMain {
 		
 	}
 	
+	public static int fibInterativeNew(int n) {
+		
+		int[] memo = new int[n+1];
+		memo[0] = 0;
+		memo[1] = 1;
+		
+		for (int i = 2; i <= n; i++) {
+			memo[n] = memo[n-1] + memo[n-2];
+		}
+		
+		return memo[n];
+		
+	}
+	
 }
