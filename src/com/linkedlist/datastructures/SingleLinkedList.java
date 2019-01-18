@@ -220,32 +220,6 @@ public class SingleLinkedList {
 		head = prev;
 		
 	}
-		
-	/**
-	 * Reverses the linked list using a recursive implementation
-	 * 
-	 * Time Complexity O(n)
-	 */
-	
-	public void reverseLinkedListRecursive(SingleNode curr) {
-		
-		// Empty list
-		if (curr == null) {
-			return;
-		}
-		
-		SingleNode next = curr.getNext();
-		
-		if (next == null) {
-			head = curr;
-			return;
-		}
-		
-		reverseLinkedListRecursive(next);
-		next.setNext(curr);
-		curr.setNext(null);
-		
-	}
 	
 	public void printList (SingleNode node) {
 		

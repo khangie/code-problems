@@ -1,6 +1,7 @@
 package com.linkedlist.problems;
 
 import com.linkedlist.datastructures.SingleLinkedList;
+import com.linkedlist.datastructures.SingleNode;
 
 public class ReverseLinkedListMain {
 
@@ -14,6 +15,8 @@ public class ReverseLinkedListMain {
 	 * 
 	 * @param args
 	 */
+	
+	/*
 	
 	public static void main(String[] args) {
 		
@@ -30,6 +33,34 @@ public class ReverseLinkedListMain {
 		
 		list.reverseLinkedListRecursive(list.head);
 		list.printList();
+		
+	}
+	
+	*/
+	
+	/**
+	 * Reverses the linked list using a recursive implementation
+	 * 
+	 * Time Complexity O(n)
+	 */
+	
+	public static void reverseLinkedListRecursive(SingleNode curr) {
+		
+		// Empty list
+		if (curr == null) {
+			return;
+		}
+		
+		SingleNode next = curr.getNext();
+		
+		if (next == null) {
+			head = curr;
+			return;
+		}
+		
+		reverseLinkedListRecursive(next);
+		next.setNext(curr);
+		curr.setNext(null);
 		
 	}
 	
