@@ -1,4 +1,4 @@
-package com.array.problems;
+package com.dynamic.problems;
 
 public class CoinChange {
 
