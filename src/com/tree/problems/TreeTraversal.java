@@ -31,6 +31,10 @@ public class TreeTraversal {
 		root.insert(32);
 		root.insert(17);
 
+		System.out.println("Pre Order Traversal");
+		traversePreOrder(root);
+		System.out.println("\n");
+		
 		System.out.println("In Order Traversal");
 		traverseInOrder(root);
 		System.out.println("\n");
@@ -43,12 +47,16 @@ public class TreeTraversal {
 		bfsLineByLine(root);
 		System.out.println("\n");
 		
-		System.out.println("Depth First Search - Iterative");
-		dfsIterative(root);
+		System.out.println("Depth First Search - Iterative (pre-order)");
+		dfsIterativePreOrder(root);
 		System.out.println("\n");
 		
-		System.out.println("Depth First Search - Recursive");
-		dfsRecursive(root);
+		System.out.println("Depth First Search - Iterative (in-order)");
+		dfsIterativeInOrder(root);
+		System.out.println("\n");
+		
+		System.out.println("Depth First Search - Recursive (pre-order)");
+		dfsRecursivePreOrder(root);
 		System.out.println("\n");
 		
 		System.out.println("Max Width");
@@ -95,7 +103,7 @@ public class TreeTraversal {
 		
 	}
 	
-	public static void dfsIterative(Node root) {
+	public static void dfsIterativePreOrder(Node root) {
 		
 		if (root == null) {
 			return;
@@ -121,7 +129,34 @@ public class TreeTraversal {
 		
 	}
 	
-	public static void dfsRecursive(Node root) {
+	public static void dfsIterativeInOrder(Node root) {
+		
+		Stack<Node> stack = new Stack<Node>();
+		
+		while (true) {
+			
+			// Go to the left extreme insert all the elements to stack
+			while (root != null) {
+				stack.push(root);
+				root = root.getLeftChild();
+			}
+			
+			// Check if Stack is empty, if yes, exit from everywhere
+			if (stack.isEmpty()) {
+				return;
+			}
+			
+			// Pop the element from the stack , print it and add the nodes at
+			// the right to the Stack
+			root = stack.pop();
+			System.out.print(root.getValue() + " -> ");
+			root = root.getRightChild();
+		
+		}
+		
+	}
+	
+	public static void dfsRecursivePreOrder(Node root) {
 		
 		if (root == null) {
 			return;
@@ -130,11 +165,11 @@ public class TreeTraversal {
 		System.out.print(root.getValue() + " -> ");
 		
 		if (root.getLeftChild() != null) {
-			dfsRecursive(root.getLeftChild());
+			dfsRecursivePreOrder(root.getLeftChild());
 		}
 		
 		if (root.getRightChild() != null) {
-			dfsRecursive(root.getRightChild());
+			dfsRecursivePreOrder(root.getRightChild());
 		}
 		
 	}
@@ -235,6 +270,20 @@ public class TreeTraversal {
 			
 		}
 		
+	}
+	
+	public static void traversePreOrder(Node root) {
+		
+		System.out.print(root.getValue() + " -> ");
+		
+		if (root.getLeftChild() != null) {
+			traversePreOrder(root.getLeftChild());
+		}
+		
+		if (root.getRightChild() != null) {
+			traversePreOrder(root.getRightChild());
+		}
+	
 	}
 	
 	public static void traverseInOrder(Node root) {
