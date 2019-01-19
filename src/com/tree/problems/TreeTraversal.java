@@ -59,6 +59,10 @@ public class TreeTraversal {
 		dfsRecursivePreOrder(root);
 		System.out.println("\n");
 		
+		System.out.println("Depth First Search - Recursive (in-order)");
+		dfsRecursiveInOrder(root);
+		System.out.println("\n");
+		
 		System.out.println("Max Width");
 		System.out.println(maxWidth(root));
 		System.out.println("\n");
@@ -77,6 +81,12 @@ public class TreeTraversal {
 		
 	}
 
+	/**
+	 * Breadth first search
+	 * - Uses a QUEUE
+	 * @param root
+	 */
+	
 	public static void bfs(Node root) {
 		
 		if (root == null) {
@@ -103,6 +113,12 @@ public class TreeTraversal {
 		
 	}
 	
+	/**
+	 * Depth first search (pre-order)
+	 * - Similar to bfs but with a stack
+	 * @param root
+	 */
+	
 	public static void dfsIterativePreOrder(Node root) {
 		
 		if (root == null) {
@@ -128,6 +144,14 @@ public class TreeTraversal {
 		}
 		
 	}
+	
+	/**
+	 * Depth first search iterative (in-order)
+	 * - Push all elements on the stack for the left children
+	 * - Then, go to right child
+	 * - Repeat until stack is empty
+	 * @param root
+	 */
 	
 	public static void dfsIterativeInOrder(Node root) {
 		
@@ -170,6 +194,25 @@ public class TreeTraversal {
 		
 		if (root.getRightChild() != null) {
 			dfsRecursivePreOrder(root.getRightChild());
+		}
+		
+	}
+	
+	public static void dfsRecursiveInOrder(Node root) {
+		
+		if (root == null) {
+			return;
+		}
+		
+		if (root.getLeftChild() != null) {
+			dfsRecursiveInOrder(root.getLeftChild());
+		}
+		
+		System.out.print(root.getValue() + " -> ");
+		
+		
+		if (root.getRightChild() != null) {
+			dfsRecursiveInOrder(root.getRightChild());
 		}
 		
 	}
@@ -218,6 +261,7 @@ public class TreeTraversal {
 	/**
 	 * Find the maximum height of a tree
 	 * - HEIGHT is the number of edges in longest path from node to leaf node
+	 *   - HEIGHT of a tree with one node is 0
 	 *   - HEIGHT of null is -1
 	 *   - HEIGHT of a parent is the HEIGHT of a child plus 1
 	 * - DEPTH is the number of edges from node to root node (opposite of height)
