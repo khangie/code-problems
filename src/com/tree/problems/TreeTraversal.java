@@ -217,8 +217,10 @@ public class TreeTraversal {
 	
 	/**
 	 * Find the maximum height of a tree
-	 * - HEIGHT is the number of edges in longest path from node to leaf node.
-	 * - DEPTH is the number of edges from node to root node.
+	 * - HEIGHT is the number of edges in longest path from node to leaf node
+	 *   - HEIGHT of null is -1
+	 *   - HEIGHT of a parent is the HEIGHT of a child plus 1
+	 * - DEPTH is the number of edges from node to root node (opposite of height)
 	 * @param root
 	 * @return
 	 */
