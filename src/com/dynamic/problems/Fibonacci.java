@@ -10,7 +10,7 @@ package com.dynamic.problems;
  *
  */
 
-public class FibonacciMain {
+public class Fibonacci {
 
 	public static void main(String[] args) {
 		
@@ -26,9 +26,6 @@ public class FibonacciMain {
 		System.out.println(fibDynamicRecursive(n, f));
 		
 		System.out.print("\n");
-		
-		FibonacciDynamic fibonacciDynamic = new FibonacciDynamic();
-		System.out.println(fibonacciDynamic.fibonacci(n));
 
 		System.out.println("fibInterativeNew");
 		System.out.println(fibInterativeNew(n));
