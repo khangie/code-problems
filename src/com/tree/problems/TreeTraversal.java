@@ -174,6 +174,12 @@ public class TreeTraversal {
 		
 	}
 	
+	/**
+	 * Find the maximum width of a tree which is basically a bfs where maxWidth = maxQueueSize()
+	 * @param root
+	 * @return
+	 */
+	
 	public static int maxWidth(Node root) {
 		
 		if (root == null) {
@@ -209,9 +215,12 @@ public class TreeTraversal {
 		
 	}
 	
-	/*
-	 *  HEIGHT is the number of edges in longest path from node to leaf node.
-	 *  DEPTH is the number of edges from node to root node.
+	/**
+	 * Find the maximum height of a tree
+	 * - HEIGHT is the number of edges in longest path from node to leaf node.
+	 * - DEPTH is the number of edges from node to root node.
+	 * @param root
+	 * @return
 	 */
 	
 	public static int maxHeight(Node root) {
