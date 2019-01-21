@@ -1,5 +1,7 @@
 package com.string.problems;
 
+import java.util.Arrays;
+
 /**
  * Two strings are anagrams if they have the same set of characters in any order
  * 1) Ignore spaces
@@ -17,19 +19,23 @@ public class Anagram {
 		String input1 = "Anagram x";
 		String input2 = "xMargana";
 		
-		System.out.println(isAnagram(input1, input2));
+		System.out.println(isAnagramSort(input1, input2));
 		
 	}
 	
-	public static boolean isAnagram(String input1, String input2) {
+	public static boolean isAnagramSort(String input1, String input2) {
 		
 		input1 = clean(input1);
-		input2 = clean(input2);
+		input2 = clean(input2);		
 		
-		System.out.println("INPUT1: " + input1 + " INPUT2: " + input2);
+		return sort(input1).equals(sort(input2));
 		
-		return false;
-		
+	}
+	
+	public static String sort(String input) {
+		char[] charArray = input.toCharArray();
+		Arrays.sort(charArray);
+		return new String(charArray);
 	}
 	
 	public static String clean(String input) {
