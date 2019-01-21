@@ -32,6 +32,34 @@ public class Anagram {
 		
 	}
 	
+	public static boolean isAnagramArray(String input1, String input2) {
+		
+		input1 = clean(input1);
+		input2 = clean(input2);	
+		
+		if (input1.length() != input2.length()) {
+			return false;
+		}
+		
+		int[] count = new int[128];
+		
+		for (int i = 0; i < input1.length(); i++) {
+			int val = input1.charAt(i);
+			count[val]++;
+		}
+		
+		for (int i = 0; i < input2.length(); i++) {
+			int val = input2.charAt(i);
+			count[val]--;
+			if (count[val] < 0) {
+				return false;
+			}
+		}
+		
+		return true;
+		
+	}
+	
 	public static String sort(String input) {
 		char[] charArray = input.toCharArray();
 		Arrays.sort(charArray);
