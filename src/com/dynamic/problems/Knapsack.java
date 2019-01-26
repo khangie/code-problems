@@ -28,8 +28,13 @@ public class Knapsack {
 		
 		// Return the maximum of including and not including the current item
 		return Math.max(
+				
+			// Including
 			knapsack(items, remainingWeight - items[itemNumber].weight, itemNumber + 1) + items[itemNumber].value, 
+			
+			// Not including
 			knapsack(items, remainingWeight, itemNumber + 1)
+		
 		);
 		
 	}
