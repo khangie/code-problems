@@ -26,7 +26,7 @@ public class Knapsack {
 			return knapsack(items, remainingWeight, itemNumber + 1);
 		}
 		
-		// Return the maximum of including and not including the current item
+		// Return the maximum of including and not including the current item with the next item
 		return Math.max(
 				
 			// Including
